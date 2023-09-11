@@ -5,6 +5,8 @@
  */
 package universidadgrupo49.Prueba;
 
+import universidadgrupo49.AccesoADatos.Conexion;
+
 /**
  *
  * @author Usuario
@@ -16,7 +18,7 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-        
+        Conexion.getConexion();
         
     }
     
