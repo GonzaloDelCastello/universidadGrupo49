@@ -6,9 +6,7 @@
 package universidadgrupo49.Prueba;
 
 import java.time.LocalDate;
-import java.time.Month;
 import universidadgrupo49.AccesoADatos.AlumnoData;
-import universidadgrupo49.AccesoADatos.Conexion;
 import universidadgrupo49.Entidades.Alumno;
 
 /**
@@ -23,9 +21,10 @@ public class NewMain {
     public static void main(String[] args) {
         
 //        Conexion.getConexion();
-        Alumno Lionel = new Alumno(123,"Lionel","Messi",LocalDate.of(1990,4,23),true);
+        Alumno Lionel = new Alumno(1, 123,"Messi","El Gran Lionel",LocalDate.of(1990,4,23),true);
         AlumnoData alu = new AlumnoData();
-        alu.guardarAlumno(Lionel);
+//        alu.guardarAlumno(Lionel);
+        alu.modificarAlumno(Lionel);
              
     }
     
