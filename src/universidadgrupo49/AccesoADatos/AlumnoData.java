@@ -60,9 +60,25 @@ public class AlumnoData {
             if (cargado == 1) {
                 JOptionPane.showMessageDialog(null,"Alumno modificado con exito!");
             }
-            
+        ps.close();    
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
         }
     }
+    
+    public void eliminarAlumno (int id){
+
+	try{
+	String sql = "UPDATE alumno SET estado =0 WHERE idAlumno =?";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1,id);
+        int fila = ps.executeUpdate();
+	if(fila == 1){
+	 JOptionPane.showMessageDialog(null,"Se eliminó el alumno.");
+}
+	ps.close();
+}catch (SQLException e){
+	JOptionPane.showMessageDialog(null,"Error al acceder a a tabla alumno");
+}
+}
 }
