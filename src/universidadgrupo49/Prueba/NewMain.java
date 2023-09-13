@@ -21,12 +21,15 @@ public class NewMain {
     public static void main(String[] args) {
         
 //        Conexion.getConexion();
-//        Alumno Lionel = new Alumno(1, 123,"Messi","El Gran Lionel",LocalDate.of(1990,4,23),true);
+//       Alumno Ezequiel = new Alumno( 123444666,"Perez","Ezequiel",LocalDate.of(1999,7,21),true);
         AlumnoData alu = new AlumnoData();
-//        alu.guardarAlumno(Lionel);
+//        alu.guardarAlumno(Ezequiel);
 //        alu.modificarAlumno(Lionel);
-          alu.eliminarAlumno(1);
-             
+//          alu.eliminarAlumno(1);
+        alu.buscarAlumno(3);
+       Alumno alumno1 = alu.buscarAlumno(3);
+         System.out.println(alumno1.toString());
+
     }
     
     
