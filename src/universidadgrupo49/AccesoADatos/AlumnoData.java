@@ -98,7 +98,7 @@ public class AlumnoData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(true);
+                //alumno.setActivo(true);
             } else {
                  JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
             }
@@ -108,4 +108,34 @@ public class AlumnoData {
         }
       return alumno; 
      }
+    
+    public Alumno bucarAlumno(int dni){
+        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1";
+    Alumno alumno = null;  
+    PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+            alumno=new Alumno();
+            alumno.setDni(dni);
+            alumno.setIdAlumno(rs.getInt("idAlumno"));
+            alumno.setApellido(rs.getString("apellido"));
+            alumno.setNombre(rs.getString("nombre"));
+            alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+            //Problemas con el estado. Nos setea false.
+            //alumno.setActivo(true);
+            
+            } else {
+                 JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno" + ex.getMessage());
+            
+        }
+        return alumno;
+    }
 }
