@@ -28,8 +28,12 @@ public class NewMain {
 //          alu.eliminarAlumno(1);
         //alu.buscarAlumno(3);
        //Alumno alumno1 = alu.buscarAlumno(3);
-       Alumno alumno1 = alu.bucarAlumno(123444666);
-        System.out.println(alumno1.toString());
+//       Alumno alumno1 = alu.bucarAlumno(123444666,true);
+        for (Alumno alumno : alu.listarAlumnos(false)) {
+            System.out.println(alumno.toString());
+        }
+        
+//        System.out.println(alumno1.toString());
 
     }
     
