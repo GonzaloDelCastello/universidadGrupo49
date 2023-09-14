@@ -42,7 +42,10 @@ public class NewMain {
         MateriaData mat = new MateriaData();
 //        mat.guardarMateria(Info);
         
-        JOptionPane.showMessageDialog(null, mat.buscarMateria(2, true));
-
+//        JOptionPane.showMessageDialog(null, mat.buscarMateria(4, true));
+//        mat.listarMaterias(true);
+        for (Materia materia: mat.listarMaterias(true)){
+            System.out.println(materia);
+        }
     }
 }

@@ -6,6 +6,8 @@
 package universidadgrupo49.AccesoADatos;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -109,4 +111,26 @@ public class MateriaData {
         }
         return materia;
     }
+    
+    public List<Materia> listarMaterias(boolean estado){
+    List<Materia> materias=new ArrayList<>();   
+    String sql="SELECT * FROM materia WHERE estado=?";
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setBoolean(1, estado);
+            ResultSet rs= ps.executeQuery();
+            while (rs.next()){
+                Materia materia=new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("anio"));
+                materia.setEstado(estado);
+                materias.add(materia);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla materia"+ex.getMessage());
+        }
+    return materias;
+    } 
 }
