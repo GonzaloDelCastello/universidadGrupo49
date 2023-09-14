@@ -61,7 +61,9 @@ public class AlumnoData {
             int cargado = ps.executeUpdate();
             if (cargado == 1) {
                 JOptionPane.showMessageDialog(null,"Alumno modificado con exito!");
-            }
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el alumno.");
+            } 
         ps.close();    
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
