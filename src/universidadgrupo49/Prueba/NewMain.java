@@ -6,6 +6,7 @@
 package universidadgrupo49.Prueba;
 
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 import universidadgrupo49.AccesoADatos.AlumnoData;
 import universidadgrupo49.AccesoADatos.MateriaData;
 import universidadgrupo49.Entidades.Alumno;
@@ -40,9 +41,8 @@ public class NewMain {
         Materia Info = new Materia(3,"Informatica", 2, false);
         MateriaData mat = new MateriaData();
 //        mat.guardarMateria(Info);
-        mat.modificarMateria(Info);
-
-
+        
+        JOptionPane.showMessageDialog(null, mat.buscarMateria(2, true));
 
     }
 }

@@ -83,4 +83,30 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla materia"+ex.getMessage());
         }
     }
+    
+    public Materia buscarMateria(int id, boolean estado){
+
+        Materia materia= null;
+        String sql= "SELECT idMateria, nombre, anio, estado FROM materia WHERE idMateria = ? AND estado = ?";
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setBoolean(2, estado);
+            ResultSet rs= ps.executeQuery();
+            if(rs.next()){
+                materia = new Materia();
+                materia.setIdMateria(id);
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("anio"));
+                materia.setEstado(estado);
+                JOptionPane.showMessageDialog(null, "Materia fue encontrada correctamente.");
+            } else { 
+                JOptionPane.showMessageDialog(null, "Materia no fue encontrada.");   
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla materia"+ex.getMessage());
+        }
+        return materia;
+    }
 }
