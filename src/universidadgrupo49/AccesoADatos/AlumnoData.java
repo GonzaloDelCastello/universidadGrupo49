@@ -34,7 +34,7 @@ public class AlumnoData {
             ps.setString(2,alumno.getApellido() );
             ps.setString(3,alumno.getNombre());
             ps.setDate(4,Date.valueOf(alumno.getFechaNacimiento()));
-            ps.setBoolean(5,alumno.isActivo());
+            ps.setBoolean(5,alumno.isEstado());
             ps.executeUpdate();   
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
@@ -86,14 +86,14 @@ public class AlumnoData {
 }
 }
     
-    public Alumno buscarAlumno(int id, boolean activo){
+    public Alumno buscarAlumno(int id, boolean estado){
 
-    String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = ?";
+    String sql = "SELECT dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE idAlumno = ? AND estado = ?";
     Alumno alumno = null;  
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            ps.setBoolean(2, activo);
+            ps.setBoolean(2, estado);
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
@@ -103,7 +103,7 @@ public class AlumnoData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(rs.getBoolean("estado"));
+                alumno.setEstado(rs.getBoolean("estado"));
             } else {
                  JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
             }
@@ -114,7 +114,7 @@ public class AlumnoData {
       return alumno; 
      }
     
-    public Alumno bucarAlumno(int dni, boolean activo){
+    public Alumno bucarAlumno(int dni, boolean estado){
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE dni = ? AND estado = ?";
         // La busqueda permite al usuario elegir si quiere buscar entre los alumnos activos o inactivos.
     Alumno alumno = null;  
@@ -122,7 +122,7 @@ public class AlumnoData {
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
-            ps.setBoolean(2, activo);
+            ps.setBoolean(2, estado);
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
@@ -132,7 +132,7 @@ public class AlumnoData {
             alumno.setApellido(rs.getString("apellido"));
             alumno.setNombre(rs.getString("nombre"));
             alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-            alumno.setActivo(rs.getBoolean("estado"));
+            alumno.setEstado(rs.getBoolean("estado"));
             
             } else {
                  JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
@@ -145,13 +145,13 @@ public class AlumnoData {
         return alumno;
     }
     
-    public List<Alumno> listarAlumnos (boolean activo) {
+    public List<Alumno> listarAlumnos (boolean estado) {
         List<Alumno> alumnos = new ArrayList<>();
         String sql = "SELECT * FROM alumno WHERE estado = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setBoolean(1, activo);
+            ps.setBoolean(1, estado);
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
@@ -161,7 +161,7 @@ public class AlumnoData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(rs.getBoolean("estado"));
+                alumno.setEstado(rs.getBoolean("estado"));
                 
                 alumnos.add(alumno);
             }

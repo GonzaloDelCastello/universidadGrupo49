@@ -27,7 +27,7 @@ public class InscripcionData {
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1,insc.getAlumno().getIdAlumno());
             ps.setInt(2,insc.getMateria().getIdMateria());
-            ps.setInt(3,insc.getNota());
+            ps.setDouble(3,insc.getNota());
             ps.executeUpdate();
            ResultSet rs = ps.getGeneratedKeys();
            if(rs.next()){
@@ -36,6 +36,7 @@ public class InscripcionData {
            }else{
                JOptionPane.showMessageDialog(null,"No se registro la inscripcion");
            }
+           ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla inscripcion"+ex.getMessage());
         }
