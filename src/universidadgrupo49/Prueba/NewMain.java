@@ -56,6 +56,8 @@ public class NewMain {
           Materia leng = mat.buscarMateria(2, true);
           Inscripcion inscripcion = new Inscripcion(eze, leng, 6.5);
           InscripcionData insc = new InscripcionData();
-          insc.guardarInscripcion(inscripcion);
+//          insc.guardarInscripcion(inscripcion);
+        insc.borrarInscripcionMateriaAlumno(3, 2);
+          
     }
 }

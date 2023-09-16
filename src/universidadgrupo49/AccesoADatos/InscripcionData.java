@@ -42,4 +42,27 @@ public class InscripcionData {
         }
     
     }
+    
+    public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria ){
+        
+        String sql="DELETE FROM inscripcion WHERE idAlumno=? AND idMateria=?";
+        
+        
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            int carga= ps.executeUpdate();
+            if(carga==1){
+                JOptionPane.showMessageDialog(null,"Inscripcion borrada con éxito");
+            } else {
+                JOptionPane.showMessageDialog(null,"No se pudo borrar la inscripción");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"No se pudo ingresar a la tabla"+ex.getMessage());
+        }
+        
+    }
 }
