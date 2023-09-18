@@ -52,12 +52,13 @@ public class NewMain {
 //        }
 
 
-          Alumno eze = alu.buscarAlumno(2, true);
-          Materia leng = mat.buscarMateria(2, true);
-          Inscripcion inscripcion = new Inscripcion(eze, leng, 6.5);
+//          Alumno eze = alu.buscarAlumno(2, true);
+//          Materia leng = mat.buscarMateria(2, true);
+//          Inscripcion inscripcion = new Inscripcion(eze, leng, 6.5);
           InscripcionData insc = new InscripcionData();
 //          insc.guardarInscripcion(inscripcion);
-        insc.borrarInscripcionMateriaAlumno(3, 2);
+//        insc.borrarInscripcionMateriaAlumno(3, 2);
+          insc.actualizarNota(4, 3, 7.5);
           
     }
 }
