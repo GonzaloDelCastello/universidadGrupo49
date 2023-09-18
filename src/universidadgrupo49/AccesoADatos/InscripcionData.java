@@ -5,11 +5,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
+import universidadgrupo49.Entidades.Alumno;
 import universidadgrupo49.Entidades.Inscripcion;
+import universidadgrupo49.Entidades.Materia;
 
 
 public class InscripcionData {
@@ -85,4 +89,41 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla inscripcion"+ex.getMessage());
         }
     }
+    
+    public List <Inscripcion> obtenerLista(){
+        
+        List <Inscripcion> inscripciones = new ArrayList<>();
+        
+        String sql = "SELECT * FROM inscripcion";
+        
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                
+                Inscripcion insc = new Inscripcion();
+                
+                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                
+               //  Alumno alu = ad.buscarAlumno(rs.getInt("idInscripto"));
+               Alumno alu = ad.buscarAlumno(rs.getInt("idAlumno"), true);
+               
+               Materia mat = md.buscarMateria(rs.getInt("idMateria"), true);
+               insc.setAlumno(alu);
+               insc.setMateria(mat);
+               insc.setNota(rs.getDouble("nota"));
+               inscripciones.add(insc);
+            }
+            ps.close();
+            
+        } catch (SQLException e) {
+            
+            JOptionPane.showInternalMessageDialog(null, "No se puedo ingresar a la tabla inscripción"+e.getMessage());
+        }
+        
+        
+        return inscripciones;
+    } 
+    
 }
