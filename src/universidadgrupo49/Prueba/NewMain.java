@@ -58,7 +58,10 @@ public class NewMain {
           InscripcionData insc = new InscripcionData();
 //          insc.guardarInscripcion(inscripcion);
 //        insc.borrarInscripcionMateriaAlumno(3, 2);
-          insc.actualizarNota(4, 3, 7.5);
+//          insc.actualizarNota(4, 3, 7.5);
+            for (Inscripcion inscripcion : insc.obtenerInscripciones()) {
+                System.out.println("Inscripcion ID " + inscripcion.getIdInscripcion());
+        }
           
     }
 }

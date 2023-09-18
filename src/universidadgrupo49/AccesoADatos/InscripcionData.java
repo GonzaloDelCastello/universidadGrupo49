@@ -90,7 +90,7 @@ public class InscripcionData {
         }
     }
     
-    public List <Inscripcion> obtenerLista(){
+    public List <Inscripcion> obtenerInscripciones(){
         
         List <Inscripcion> inscripciones = new ArrayList<>();
         
@@ -106,7 +106,6 @@ public class InscripcionData {
                 
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
                 
-               //  Alumno alu = ad.buscarAlumno(rs.getInt("idInscripto"));
                Alumno alu = ad.buscarAlumno(rs.getInt("idAlumno"), true);
                
                Materia mat = md.buscarMateria(rs.getInt("idMateria"), true);
@@ -119,7 +118,7 @@ public class InscripcionData {
             
         } catch (SQLException e) {
             
-            JOptionPane.showInternalMessageDialog(null, "No se puedo ingresar a la tabla inscripción"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo ingresar a la tabla inscripción "+e.getMessage());
         }
         
         
