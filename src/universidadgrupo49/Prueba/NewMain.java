@@ -64,11 +64,17 @@ public class NewMain {
 //                + inscripcion.getAlumno().getIdAlumno() + " || Apellido: " + inscripcion.getAlumno().getApellido() + " || Materia: " 
 //                + inscripcion.getMateria().getNombre());
 
-            for (Materia materia : insc.obtenerMateriasCursadas(4)) {
-                System.out.println("Materias cursadas por alumno: " + alu.buscarAlumno(4, true).getNombre() + " " + alu.buscarAlumno(4, true).getApellido()
-                        +"\n id Materia: " + materia.getIdMateria() + " || nombre Materia: " + materia.getNombre() + " || año Materia: " + 
-                        materia.getAnio());
-            
-        } 
+//            for (Materia materia : insc.obtenerMateriasCursadas(3)) {
+//                System.out.println("Materias cursadas por alumno: " + alu.buscarAlumno(3, true).getNombre() + " " + alu.buscarAlumno(3, true).getApellido()
+//                        +"\n id Materia: " + materia.getIdMateria() + " || nombre Materia: " + materia.getNombre() + " || año Materia: " + 
+//                        materia.getAnio());
+//            
+//        } 
+            for ( Materia materia : insc.obtenerMateriasNoCursadas(3)){
+                System.out.println( 
+            "|| id Materia: "+ materia.getIdMateria()+ " || nombre de la Materia: " + materia.getNombre()+
+            "|| año: "+ materia.getAnio());
+           
+            }
     }
 }
