@@ -18,11 +18,15 @@ import universidadgrupo49.Entidades.Materia;
 
 public class InscripcionData {
     private Connection con = null;
-    private MateriaData md = new MateriaData();
-    private AlumnoData ad = new AlumnoData();
+    private MateriaData md;
+    private AlumnoData ad;
+    
     public InscripcionData(){
-        this.con = Conexion.getConexion();
+        con = Conexion.getConexion();
+        md = new MateriaData();
+        ad = new AlumnoData();
     }
+    
     public void guardarInscripcion (Inscripcion insc){
     
         String sql ="INSERT INTO inscripcion (idAlumno,idMateria,nota) VALUES (?,?,?)";
@@ -92,11 +96,11 @@ public class InscripcionData {
         
         List <Inscripcion> inscripciones = new ArrayList<>();
         
-        String sql = "SELECT * FROM inscripcion";
+        String sql = "SELECT idInscripcion,idAlumno,idMateria,nota FROM inscripcion";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery(sql);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 
                 Inscripcion insc = new Inscripcion();
