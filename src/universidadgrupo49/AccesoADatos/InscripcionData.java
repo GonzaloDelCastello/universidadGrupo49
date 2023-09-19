@@ -151,7 +151,31 @@ public class InscripcionData {
 
         return inscripcionesPorAlumno;
     }
+    
+    public List<Materia> obtenerMateriasCursadas (int idAlumno){
+        List<Materia> materiasCursadas = new ArrayList<>();
+        
+        String sql= "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion, materia "
+                + "WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno = ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Materia mat = new Materia();
+                mat.setIdMateria(rs.getInt("idMateria"));
+                mat.setNombre(rs.getString("nombre"));
+                mat.setAnio(rs.getInt("anio"));
+                materiasCursadas.add(mat);   
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo ingresar a la tabla inscripción " + ex.getMessage());
+        }
+        return materiasCursadas;
+    }
 }
 
 
-//...

@@ -59,11 +59,16 @@ public class NewMain {
 //          insc.guardarInscripcion(inscripcion);
 //        insc.borrarInscripcionMateriaAlumno(3, 2);
 //          insc.actualizarNota(4, 3, 7.5);
-            for (Inscripcion inscripcion : insc.obtenerInscripcionesPorAlumno(4)) {
-                System.out.println("Inscripcion ID: " + inscripcion.getIdInscripcion() + " || Nota: " + inscripcion.getNota() + " || idAlumno: "
-                + inscripcion.getAlumno().getIdAlumno() + " || Apellido: " + inscripcion.getAlumno().getApellido() + " || Materia: " 
-                + inscripcion.getMateria().getNombre());
-        }
-          
+//            for (Inscripcion inscripcion : insc.obtenerInscripcionesPorAlumno(4)) {
+//                System.out.println("Inscripcion ID: " + inscripcion.getIdInscripcion() + " || Nota: " + inscripcion.getNota() + " || idAlumno: "
+//                + inscripcion.getAlumno().getIdAlumno() + " || Apellido: " + inscripcion.getAlumno().getApellido() + " || Materia: " 
+//                + inscripcion.getMateria().getNombre());
+
+            for (Materia materia : insc.obtenerMateriasCursadas(4)) {
+                System.out.println("Materias cursadas por alumno: " + alu.buscarAlumno(4, true).getNombre() + " " + alu.buscarAlumno(4, true).getApellido()
+                        +"\n id Materia: " + materia.getIdMateria() + " || nombre Materia: " + materia.getNombre() + " || año Materia: " + 
+                        materia.getAnio());
+            
+        } 
     }
 }
