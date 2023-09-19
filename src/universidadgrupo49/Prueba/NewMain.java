@@ -70,11 +70,12 @@ public class NewMain {
 //                        materia.getAnio());
 //            
 //        } 
-            for ( Materia materia : insc.obtenerMateriasNoCursadas(3)){
-                System.out.println( 
-            "|| id Materia: "+ materia.getIdMateria()+ " || nombre de la Materia: " + materia.getNombre()+
-            "|| año: "+ materia.getAnio());
-           
-            }
+//            for ( Materia materia : insc.obtenerMateriasNoCursadas(3)){
+//                System.out.println( 
+//            "|| id Materia: "+ materia.getIdMateria()+ " || nombre de la Materia: " + materia.getNombre()+
+//            "|| año: "+ materia.getAnio());
+   // }
+                        
+            
     }
 }
