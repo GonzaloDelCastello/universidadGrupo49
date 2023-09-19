@@ -18,8 +18,8 @@ import universidadgrupo49.Entidades.Materia;
 
 public class InscripcionData {
     private Connection con = null;
-    private MateriaData md;
-    private AlumnoData ad;
+    private MateriaData md = new MateriaData();
+    private AlumnoData ad = new AlumnoData();
     public InscripcionData(){
         this.con = Conexion.getConexion();
     }
@@ -50,8 +50,6 @@ public class InscripcionData {
     public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria ){
         
         String sql="DELETE FROM inscripcion WHERE idAlumno=? AND idMateria=?";
-        
-        
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -96,7 +94,6 @@ public class InscripcionData {
         
         String sql = "SELECT * FROM inscripcion";
         
-        
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery(sql);
@@ -120,8 +117,6 @@ public class InscripcionData {
             
             JOptionPane.showMessageDialog(null, "No se pudo ingresar a la tabla inscripción "+e.getMessage());
         }
-        
-        
         return inscripciones;
     } 
     
