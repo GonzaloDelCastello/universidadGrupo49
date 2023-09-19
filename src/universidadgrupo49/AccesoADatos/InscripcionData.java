@@ -152,3 +152,6 @@ public class InscripcionData {
         return inscripcionesPorAlumno;
     }
 }
+
+
+//...
