@@ -44,7 +44,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMAlumnosPorMateria = new javax.swing.JMenuItem();
-        jMSalir = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -64,11 +63,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.setLayout(jdEscritorioLayout);
         jdEscritorioLayout.setHorizontalGroup(
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 972, Short.MAX_VALUE)
         );
         jdEscritorioLayout.setVerticalGroup(
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Alumno");
@@ -86,6 +85,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Materia");
 
         jMFormMateria.setText("Formulario de Materia");
+        jMFormMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFormMateriaActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMFormMateria);
 
         jMenuBar1.add(jMenu2);
@@ -93,9 +97,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Administración");
 
         jMInscripciones.setText("Manejo de Inscripciones");
+        jMInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMInscripcionesActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMInscripciones);
 
         jMNotas.setText("Manipulación de Notas");
+        jMNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNotasActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMNotas);
 
         jMenuBar1.add(jMenu5);
@@ -103,12 +117,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu6.setText("Consultas");
 
         jMAlumnosPorMateria.setText("Alumnos por Materia");
+        jMAlumnosPorMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAlumnosPorMateriaActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMAlumnosPorMateria);
 
         jMenuBar1.add(jMenu6);
-
-        jMSalir.setText("Salir");
-        jMenuBar1.add(jMSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -116,11 +132,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdEscritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdEscritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,8 +149,57 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMFormAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormAlumnoActionPerformed
         // TODO add your handling code here:
         
-        
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        AlumnoVista al = new AlumnoVista();
+        al.setVisible(true);
+        jdEscritorio.add(al);
+        jdEscritorio.moveToFront(al);
     }//GEN-LAST:event_jMFormAlumnoActionPerformed
+
+    private void jMFormMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriaActionPerformed
+        // TODO add your handling code here:
+        
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        MateriaVista mv = new MateriaVista();
+        mv.setVisible(true);
+        jdEscritorio.add(mv);
+        jdEscritorio.moveToFront(mv);
+    }//GEN-LAST:event_jMFormMateriaActionPerformed
+
+    private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
+        // TODO add your handling code here:
+        
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        FormularioDeInscripcion fi = new FormularioDeInscripcion();
+        fi.setVisible(true);
+        jdEscritorio.add(fi);
+        jdEscritorio.moveToFront(fi);
+    }//GEN-LAST:event_jMInscripcionesActionPerformed
+
+    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
+        // TODO add your handling code here:
+        
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        CargaDeNotasVista cg = new CargaDeNotasVista();
+        cg.setVisible(true);
+        jdEscritorio.add(cg);
+        jdEscritorio.moveToFront(cg);
+    }//GEN-LAST:event_jMNotasActionPerformed
+
+    private void jMAlumnosPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumnosPorMateriaActionPerformed
+        // TODO add your handling code here:
+        
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        ConsultaAlumnoPorMateriaVista vm = new ConsultaAlumnoPorMateriaVista();
+        vm.setVisible(true);
+        jdEscritorio.add(vm);
+        jdEscritorio.moveToFront(vm);
+    }//GEN-LAST:event_jMAlumnosPorMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,7 +242,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMFormMateria;
     private javax.swing.JMenuItem jMInscripciones;
     private javax.swing.JMenuItem jMNotas;
-    private javax.swing.JMenu jMSalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

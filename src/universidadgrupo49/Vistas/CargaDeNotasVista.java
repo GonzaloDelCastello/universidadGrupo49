@@ -35,6 +35,9 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
+
         jLabel1.setText("Carga de Notas");
 
         jLabel2.setText("Seleccione un alumno:");

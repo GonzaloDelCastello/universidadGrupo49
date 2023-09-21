@@ -44,6 +44,9 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
+
         jLAlumno.setText("Alumno");
 
         jLabel1.setText("Documento");
