@@ -86,7 +86,7 @@ public class AlumnoData {
 }
 }
     
-    public Alumno buscarAlumno(int id, boolean estado){
+    public Alumno buscarAlumnoId(int id, boolean estado){
 
     String sql = "SELECT dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE idAlumno = ? AND estado = ?";
     Alumno alumno = null;  
@@ -114,7 +114,7 @@ public class AlumnoData {
       return alumno; 
      }
     
-    public Alumno bucarAlumno(int dni, boolean estado){
+    public Alumno buscarAlumnoDNI(int dni, boolean estado){
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE dni = ? AND estado = ?";
         // La busqueda permite al usuario elegir si quiere buscar entre los alumnos activos o inactivos.
     Alumno alumno = null;  

@@ -31,9 +31,9 @@ public class NewMain {
 //        alu.guardarAlumno(Ezequiel);
 //        alu.modificarAlumno(Lionel);
 //          alu.eliminarAlumno(1);
-//        alu.buscarAlumno(3, true);
-       //Alumno alumno1 = alu.buscarAlumno(3);
-//       Alumno alumno1 = alu.bucarAlumno(123444666,true);
+//        alu.buscarAlumnoId(3, true);
+       //Alumno alumno1 = alu.buscarAlumnoId(3);
+//       Alumno alumno1 = alu.buscarAlumnoDNI(123444666,true);
 //        for (Alumno alumno : alu.listarAlumnos(false)) {
 //            System.out.println(alumno.toString());
 //        }
@@ -52,7 +52,7 @@ public class NewMain {
 //        }
 
 
-//          Alumno eze = alu.buscarAlumno(2, true);
+//          Alumno eze = alu.buscarAlumnoId(2, true);
 //          Materia leng = mat.buscarMateria(2, true);
 //          Inscripcion inscripcion = new Inscripcion(eze, leng, 6.5);
           InscripcionData insc = new InscripcionData();
@@ -65,7 +65,7 @@ public class NewMain {
 //                + inscripcion.getMateria().getNombre());
 
 //            for (Materia materia : insc.obtenerMateriasCursadas(3)) {
-//                System.out.println("Materias cursadas por alumno: " + alu.buscarAlumno(3, true).getNombre() + " " + alu.buscarAlumno(3, true).getApellido()
+//                System.out.println("Materias cursadas por alumno: " + alu.buscarAlumnoId(3, true).getNombre() + " " + alu.buscarAlumnoId(3, true).getApellido()
 //                        +"\n id Materia: " + materia.getIdMateria() + " || nombre Materia: " + materia.getNombre() + " || año Materia: " + 
 //                        materia.getAnio());
 //            

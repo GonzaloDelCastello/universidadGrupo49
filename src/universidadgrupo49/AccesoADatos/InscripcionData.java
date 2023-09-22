@@ -107,7 +107,7 @@ public class InscripcionData {
 
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
 
-                Alumno alu = ad.buscarAlumno(rs.getInt("idAlumno"), true);
+                Alumno alu = ad.buscarAlumnoId(rs.getInt("idAlumno"), true);
 
                 Materia mat = md.buscarMateria(rs.getInt("idMateria"), true);
                 insc.setAlumno(alu);
@@ -136,7 +136,7 @@ public class InscripcionData {
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu = ad.buscarAlumno(rs.getInt("idAlumno"), true);
+                Alumno alu = ad.buscarAlumnoId(rs.getInt("idAlumno"), true);
                 Materia mat = md.buscarMateria(rs.getInt("idMateria"), true);
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
