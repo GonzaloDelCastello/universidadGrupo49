@@ -5,7 +5,14 @@
  */
 package universidadgrupo49.Vistas;
 
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import universidadgrupo49.AccesoADatos.AlumnoData;
+import universidadgrupo49.Entidades.Alumno;
 
 /**
  *
@@ -29,16 +36,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
-        buttonGroup6 = new javax.swing.ButtonGroup();
-        buttonGroup7 = new javax.swing.ButtonGroup();
-        buttonGroup8 = new javax.swing.ButtonGroup();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         jLAlumno = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,17 +48,14 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jTFNombre = new javax.swing.JTextField();
         jBBuscar = new javax.swing.JButton();
         jDCFechaNacim = new com.toedter.calendar.JDateChooser();
-        jBNuevo = new javax.swing.JButton();
+        jBLimpiar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
-        jCBEstado = new javax.swing.JComboBox<>();
+        jRBEstado = new javax.swing.JRadioButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-
-        jRadioButtonMenuItem2.setSelected(true);
-        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
 
         setClosable(true);
         setMaximizable(true);
@@ -77,12 +72,6 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Fecha de Nacimiento");
 
-        jTFDocumento.setEditable(false);
-
-        jTFApellido.setEditable(false);
-
-        jTFNombre.setEditable(false);
-
         jBBuscar.setText("Buscar");
         jBBuscar.setToolTipText("Para buscar debe indicar el DNI y el Estado del Alumno.");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +80,12 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jBNuevo.setText("Nuevo");
+        jBLimpiar.setText("Limpiar pantalla");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setText("Eliminar");
 
@@ -99,7 +93,8 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         jBSalir.setText("Salir");
 
-        jCBEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jRBEstado.setSelected(true);
+        jRBEstado.setText("Activo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,7 +104,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jBNuevo)
+                        .addComponent(jBLimpiar)
                         .addGap(18, 18, 18)
                         .addComponent(jBEliminar)
                         .addGap(18, 18, 18)
@@ -126,16 +121,15 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTFDocumento)
+                                .addComponent(jTFDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jBBuscar))
-                            .addComponent(jTFNombre)
-                            .addComponent(jTFApellido)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jDCFechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jCBEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(47, 47, 47))
+                            .addComponent(jDCFechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTFApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                                .addComponent(jTFNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRBEstado, javax.swing.GroupLayout.Alignment.LEADING)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLAlumno)
@@ -161,14 +155,14 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(jRBEstado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDCFechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
+                    .addComponent(jBLimpiar)
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
@@ -180,27 +174,36 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
-        AlumnoData ad = new AlumnoData();
-//        ad.buscarAlumnoDNI(this.jTFDocumento., isIcon); aca quedamos. 
+        try {
+            AlumnoData ad = new AlumnoData();
+        int dni = Integer.parseInt(jTFDocumento.getText());
+        boolean estado = jRBEstado.isSelected();
+        Alumno alu = ad.buscarAlumnoDNI(dni, estado);
+        jTFApellido.setText(alu.getApellido());
+        jTFNombre.setText(alu.getNombre());
+        Date date = Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        jDCFechaNacim.setDate(date);
+        } catch (NumberFormatException nbe) {
+            JOptionPane.showMessageDialog(this, "El campo DNI solo acepta números.");
+        }
         
     }//GEN-LAST:event_jBBuscarActionPerformed
 
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+        // TODO add your handling code here:
+        jTFDocumento.setText("");
+        jTFApellido.setText("");
+        jTFNombre.setText("");
+        jDCFechaNacim.setDate(null);
+    }//GEN-LAST:event_jBLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.ButtonGroup buttonGroup6;
-    private javax.swing.ButtonGroup buttonGroup7;
-    private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
-    private javax.swing.JButton jBNuevo;
+    private javax.swing.JButton jBLimpiar;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JComboBox<String> jCBEstado;
     private com.toedter.calendar.JDateChooser jDCFechaNacim;
     private javax.swing.JLabel jLAlumno;
     private javax.swing.JLabel jLabel1;
@@ -208,8 +211,8 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JRadioButton jRBEstado;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JTextField jTFApellido;
     private javax.swing.JTextField jTFDocumento;
     private javax.swing.JTextField jTFNombre;
