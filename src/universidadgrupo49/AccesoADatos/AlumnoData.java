@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo49.Entidades.Alumno;
 
@@ -26,7 +24,7 @@ public class AlumnoData {
     public void guardarAlumno (Alumno alumno){
     
         String sql ="INSERT INTO alumno (dni,apellido,nombre,fechaNacimiento, estado)"
-                + "VALUES(?,?,?,?,?)"; // le enviamo a bd el mensaje de lo que vamos a cargar
+                + "VALUES(?,?,?,?,?)"; // le enviamos a bd el mensaje de lo que vamos a cargar
         
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -104,9 +102,7 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(rs.getBoolean("estado"));
-            } else {
-                 JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
-            }
+            } 
             ps.close();
         } catch (SQLException e) {
                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno" + e.getMessage());
@@ -134,9 +130,7 @@ public class AlumnoData {
             alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
             alumno.setEstado(rs.getBoolean("estado"));
             
-            } else {
-                 JOptionPane.showMessageDialog(null, "No existe ese alumno"); 
-            }
+            } 
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno" + ex.getMessage());
