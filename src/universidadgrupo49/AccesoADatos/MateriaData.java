@@ -8,8 +8,6 @@ package universidadgrupo49.AccesoADatos;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo49.Entidades.Materia;
 
