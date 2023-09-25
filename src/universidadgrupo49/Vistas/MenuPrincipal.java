@@ -5,6 +5,13 @@
  */
 package universidadgrupo49.Vistas;
 
+import java.awt.Color;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
+
 /**
  *
  * @author Usuario
@@ -16,6 +23,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);  // centrar pantalla
+        
     }
 
     /**
@@ -33,7 +42,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jdEscritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/universidadgrupo49/recursos/campus_ULP.jpg"));
+        Image ulpImagen = icono.getImage();
+        jdEscritorio = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+
+                g.drawImage(ulpImagen,0,0,getWidth(), getHeight(),this);
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMFormAlumno = new javax.swing.JMenuItem();
@@ -151,10 +169,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         jdEscritorio.removeAll();
         jdEscritorio.repaint();
-        AlumnoVista al = new AlumnoVista();
+        AlumnoVista al = new AlumnoVista(); // instraciamos el objeto
         al.setVisible(true);
+        al.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(al);
         jdEscritorio.moveToFront(al);
+      
+     
+      
     }//GEN-LAST:event_jMFormAlumnoActionPerformed
 
     private void jMFormMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriaActionPerformed
@@ -175,6 +197,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.repaint();
         FormularioDeInscripcion fi = new FormularioDeInscripcion();
         fi.setVisible(true);
+        fi.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(fi);
         jdEscritorio.moveToFront(fi);
     }//GEN-LAST:event_jMInscripcionesActionPerformed

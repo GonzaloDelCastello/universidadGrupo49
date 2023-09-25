@@ -1,6 +1,7 @@
 
 package universidadgrupo49.AccesoADatos;
 
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -69,20 +70,36 @@ public class AlumnoData {
     }
     
     public void eliminarAlumno (int id){
-
-	try{
-	String sql = "UPDATE alumno SET estado =0 WHERE idAlumno =?";
+ 
+	try {
+                    //DELETE 
+ 	String sql = "UPDATE  alumno SET estado =0 WHERE idAlumno =?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setInt(1,id);
         int fila = ps.executeUpdate();
 	if(fila == 1){
-	 JOptionPane.showMessageDialog(null,"Se eliminó el alumno.");
-}
+
+        JOptionPane.showMessageDialog(null,"Se eliminó el alumno.");
+        }  
 	ps.close();
-}catch (SQLException e){
-	JOptionPane.showMessageDialog(null,"Error al acceder a a tabla alumno");
+        
+} catch (SQLException e){
+	JOptionPane.showMessageDialog(null,"Error al eliminar alumno: "+e.getMessage());
 }
 }
+ 
+    // new
+//    public void eliminarAlumnoPorDni(int dni) {
+//    try {
+//        PreparedStatement ps = con.prepareStatement("DELETE FROM alumno WHERE dni = ?");
+//        ps.setInt(1, dni);
+//        ps.executeUpdate();
+//    } catch (SQLException ex) {
+//        System.out.println("Error al eliminar alumno: " + ex.getMessage());
+//    }
+//}
+//    
+    
     
     public Alumno buscarAlumnoId(int id, boolean estado){
 
@@ -164,8 +181,7 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno" + ex.getMessage());
         }
-        
-        
-        return alumnos;
+          return alumnos;
     }
+    
 }
