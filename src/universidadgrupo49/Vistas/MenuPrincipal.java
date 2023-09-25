@@ -6,9 +6,11 @@
 package universidadgrupo49.Vistas;
 
 import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+
 
 /**
  *
@@ -171,7 +173,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         al.setVisible(true);
         al.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(al);
-      //  jdEscritorio.moveToFront(al);
+        jdEscritorio.moveToFront(al);
+      
+     
+      
     }//GEN-LAST:event_jMFormAlumnoActionPerformed
 
     private void jMFormMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormMateriaActionPerformed
@@ -192,6 +197,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.repaint();
         FormularioDeInscripcion fi = new FormularioDeInscripcion();
         fi.setVisible(true);
+        fi.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(fi);
         jdEscritorio.moveToFront(fi);
     }//GEN-LAST:event_jMInscripcionesActionPerformed

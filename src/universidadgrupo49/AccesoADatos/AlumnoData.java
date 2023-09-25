@@ -90,6 +90,19 @@ public class AlumnoData {
 }
 }
  
+    // new
+//    public void eliminarAlumnoPorDni(int dni) {
+//    try {
+//        PreparedStatement ps = con.prepareStatement("DELETE FROM alumno WHERE dni = ?");
+//        ps.setInt(1, dni);
+//        ps.executeUpdate();
+//    } catch (SQLException ex) {
+//        System.out.println("Error al eliminar alumno: " + ex.getMessage());
+//    }
+//}
+//    
+    
+    
     public Alumno buscarAlumnoId(int id, boolean estado){
 
     String sql = "SELECT dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE idAlumno = ? AND estado = ?";
@@ -174,14 +187,7 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno" + ex.getMessage());
         }
-        
-        
-        return alumnos;
+          return alumnos;
     }
-
-//    public List<Alumno> listarAlumnos() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
     
 }

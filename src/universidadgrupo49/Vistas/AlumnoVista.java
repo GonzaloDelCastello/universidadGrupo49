@@ -54,8 +54,8 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
-        setClosable(true);
-        setMaximizable(true);
+        setResizable(true);
+        setVisible(true);
 
         jLAlumno.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLAlumno.setText("Alumno");
@@ -272,6 +272,8 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     
          Boolean estado = jRBEstado.isSelected(); 
          
+         
+              
            if (alumno==null) {
              
              alumno = new Alumno(dni,apellido,nombre,fechaNac, estado);
@@ -287,38 +289,36 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
              
 
          }
-                 
+        limpiarPantalla();         
         } catch (NumberFormatException nbe) {
             
             JOptionPane.showMessageDialog(this, "Debe ingresar un DNI válido!.");
         }
-        limpiarPantalla();   
+           
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     
                    // BOTON ELIMINAR
     
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-          //  try {
-     
-        if (alumno!=null) {
-           
-          // int id = Integer.parseInt(jTFDocumento.getText()); 
-            
-           alu.eliminarAlumno(alumno.getIdAlumno());
-           alumno = null; // inicializas 
-           limpiarPantalla();
-       } else {
-     //       } catch (NumberFormatException ex){     
-            JOptionPane.showMessageDialog(this, "No hay un alumno seleccionado!.");
-        }
+    
+//          if (alumno!=null) {
+//           
+//          alu.eliminarAlumno(alumno.getIdAlumno());
+//           
+//          alumno = null; // inicializas
+          borrar(); 
+          limpiarPantalla();
+//       } else {
+//           
+//           JOptionPane.showMessageDialog(this, "No hay un alumno seleccionado!.");
+//        }
     }//GEN-LAST:event_jBEliminarActionPerformed
-
+    
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         
         dispose();
-        
-        
+    
     }//GEN-LAST:event_jBSalirActionPerformed
 
     //metodo limpiar-*-
@@ -331,6 +331,19 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jDCFechaNacim.setDate(null);
     }
     
+    //metodo borrar-*-
+    
+   private void borrar() {
+    jTFDocumento.setText("");
+    jTFNombre.setText("");
+    jTFApellido.setText("");
+    jDCFechaNacim.setDate(null);
+    jRBEstado.setSelected(false);
+  //  alu.eliminarAlumnoPorDni(WIDTH);
+
+
+
+   }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -352,9 +365,4 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTFDocumento;
     private javax.swing.JTextField jTFNombre;
     // End of variables declaration//GEN-END:variables
-
-    private void Limpiar() {
-            }
-   
 }
-
