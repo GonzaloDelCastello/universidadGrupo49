@@ -37,7 +37,7 @@ public class MateriaData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 materia.setIdMateria(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Materia añadida correctamente.");
+                JOptionPane.showMessageDialog(null, "Materia añadida correctamente.");  
             }
             ps.close();
         } catch (SQLException ex) {
@@ -57,9 +57,7 @@ public class MateriaData {
             
             if (cargado == 1) {
                 JOptionPane.showMessageDialog(null, "Materia modificada correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe la materia.");
-            }
+            } 
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla" + ex.getMessage());
@@ -101,7 +99,7 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
                 materia.setEstado(estado);
-                JOptionPane.showMessageDialog(null, "Materia fue encontrada correctamente.");
+//                JOptionPane.showMessageDialog(null, "Materia fue encontrada correctamente.");/se comento la linea para que no salga la vista
             } else { 
                 JOptionPane.showMessageDialog(null, "Materia no fue encontrada.");   
             }
