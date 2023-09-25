@@ -5,12 +5,10 @@
  */
 package universidadgrupo49.Vistas;
 
-import java.text.SimpleDateFormat;
+import java.awt.event.KeyEvent;
 import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import universidadgrupo49.AccesoADatos.AlumnoData;
 import universidadgrupo49.Entidades.Alumno;
 
@@ -51,7 +49,6 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBLimpiar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
-        jBSalir = new javax.swing.JButton();
         jRBEstado = new javax.swing.JRadioButton();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -72,6 +69,13 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Fecha de Nacimiento");
 
+        jTFDocumento.setToolTipText("Ingrese solo números.");
+        jTFDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFDocumentoKeyPressed(evt);
+            }
+        });
+
         jBBuscar.setText("Buscar");
         jBBuscar.setToolTipText("Para buscar debe indicar el DNI y el Estado del Alumno.");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +95,6 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         jBGuardar.setText("Guardar");
 
-        jBSalir.setText("Salir");
-
         jRBEstado.setSelected(true);
         jRBEstado.setText("Activo");
 
@@ -102,34 +104,31 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jBLimpiar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jBLimpiar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTFDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBSalir))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTFDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBBuscar))
-                            .addComponent(jDCFechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTFApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                                .addComponent(jTFNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRBEstado, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBBuscar))
+                    .addComponent(jDCFechaNacim, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jBEliminar)
+                            .addGap(18, 18, 18)
+                            .addComponent(jBGuardar))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTFApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(jTFNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRBEstado, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLAlumno)
@@ -164,8 +163,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBLimpiar)
                     .addComponent(jBEliminar)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBSalir))
+                    .addComponent(jBGuardar))
                 .addContainerGap())
         );
 
@@ -176,17 +174,19 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             AlumnoData ad = new AlumnoData();
-        int dni = Integer.parseInt(jTFDocumento.getText());
-        boolean estado = jRBEstado.isSelected();
-        Alumno alu = ad.buscarAlumnoDNI(dni, estado);
-        jTFApellido.setText(alu.getApellido());
-        jTFNombre.setText(alu.getNombre());
-        Date date = Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        jDCFechaNacim.setDate(date);
+            int dni = Integer.parseInt(jTFDocumento.getText());
+            boolean estado = jRBEstado.isSelected();
+            Alumno alu = ad.buscarAlumnoDNI(dni, estado);
+            jTFApellido.setText(alu.getApellido());
+            jTFNombre.setText(alu.getNombre());
+            Date date = Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jDCFechaNacim.setDate(date);
         } catch (NumberFormatException nbe) {
-            JOptionPane.showMessageDialog(this, "El campo DNI solo acepta números.");
+            JOptionPane.showMessageDialog(this, "Debe ingresar numeros en el campo DNI.");
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(null, "No existe ese alumno");
         }
-        
+
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
@@ -197,13 +197,19 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jDCFechaNacim.setDate(null);
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
+    private void jTFDocumentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDocumentoKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                    jBBuscar.doClick();
+                }
+    }//GEN-LAST:event_jTFDocumentoKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBLimpiar;
-    private javax.swing.JButton jBSalir;
     private com.toedter.calendar.JDateChooser jDCFechaNacim;
     private javax.swing.JLabel jLAlumno;
     private javax.swing.JLabel jLabel1;
