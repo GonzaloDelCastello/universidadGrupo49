@@ -1,34 +1,22 @@
-
 package universidadgrupo49.Vistas;
 
-
-
+import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.ZoneId;
-
 import java.util.Date;
 import javax.swing.JOptionPane;
-
 import universidadgrupo49.AccesoADatos.AlumnoData;
 import universidadgrupo49.Entidades.Alumno;
 
-/**
- *
- * @author Juan Manuel
- */
 public class AlumnoVista extends javax.swing.JInternalFrame {
 
-    private AlumnoData alu = new AlumnoData();  // creamos variable de tipo 'alu'
-    private Alumno alumno = null;               // inicializamos el alumno-*- 
-    
-    
-    
-   
+    private AlumnoData ad = new AlumnoData();  // creamos variable de tipo 'AlumnoData'
+    private Alumno alumno = null;               // inicializamos el alumno.
+
     public AlumnoVista() {
         initComponents();
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,12 +36,13 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBLimpiar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
-        jBSalir = new javax.swing.JButton();
         jRBEstado = new javax.swing.JRadioButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
+        setClosable(true);
+        setMaximizable(true);
         setResizable(true);
         setVisible(true);
 
@@ -75,10 +64,16 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setText("Fecha de Nacimiento");
 
+        jTFDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFDocumentoKeyPressed(evt);
+            }
+        });
+
         jBBuscar.setBackground(new java.awt.Color(41, 84, 171));
         jBBuscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBBuscar.setForeground(new java.awt.Color(0, 0, 0));
-        jBBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\lupa.png")); // NOI18N
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/lupa.png"))); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.setToolTipText("Para buscar debe indicar el DNI y el Estado del Alumno.");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +85,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBLimpiar.setBackground(new java.awt.Color(157, 161, 158));
         jBLimpiar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBLimpiar.setForeground(new java.awt.Color(0, 0, 0));
-        jBLimpiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\escoba.png")); // NOI18N
+        jBLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/escoba.png"))); // NOI18N
         jBLimpiar.setText("Limpiar pantalla");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +96,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBEliminar.setBackground(new java.awt.Color(224, 9, 78));
         jBEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jBEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\basura.png")); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/basura.png"))); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,22 +107,11 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBGuardar.setBackground(new java.awt.Color(35, 153, 67));
         jBGuardar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        jBGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\guardar-datos.png")); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/guardar-datos.png"))); // NOI18N
+        jBGuardar.setText("Guardar / Modificar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
-            }
-        });
-
-        jBSalir.setBackground(new java.awt.Color(0, 204, 204));
-        jBSalir.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBSalir.setForeground(new java.awt.Color(0, 0, 0));
-        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\salida.png")); // NOI18N
-        jBSalir.setText("Salir");
-        jBSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalirActionPerformed(evt);
             }
         });
 
@@ -154,9 +138,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBEliminar)
                         .addGap(18, 18, 18)
-                        .addComponent(jBGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBGuardar))
                     .addComponent(jRBEstado)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jDCFechaNacim, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -166,7 +148,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                             .addComponent(jTFDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jBBuscar))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLAlumno)
@@ -202,61 +184,52 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBLimpiar)
                     .addComponent(jBEliminar)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBSalir))
+                    .addComponent(jBGuardar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-                 // BOTON BUSCAR            
-    
+    // BOTON BUSCAR            
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        
+
         try {
-            AlumnoData ad = new AlumnoData();
-        int dni = Integer.parseInt(jTFDocumento.getText());
-        boolean estado = jRBEstado.isSelected();
-       Alumno alumno = ad.buscarAlumnoDNI(dni, estado);
-        
-            if (alumno!=null) {
-                
-            
-        
-        jTFApellido.setText(alumno.getApellido());
-        jTFNombre.setText(alumno.getNombre());
-        Date date = Date.from(alumno.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        jDCFechaNacim.setDate(date);
-        }
-            
+            int dni = Integer.parseInt(jTFDocumento.getText());
+            boolean estado = jRBEstado.isSelected();
+            alumno = ad.buscarAlumnoDNI(dni, estado);
+
+            jTFApellido.setText(alumno.getApellido());
+            jTFNombre.setText(alumno.getNombre());
+            Date date = Date.from(alumno.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jDCFechaNacim.setDate(date);
+
         } catch (NumberFormatException nbe) {
-            JOptionPane.showMessageDialog(this, "El campo DNI solo acepta números.");
+            JOptionPane.showMessageDialog(this, "Debe ingresar números en el campo DNI.");
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(this, "El alumno que busca no existe.");
         }
-            
     }//GEN-LAST:event_jBBuscarActionPerformed
-  
-           // BOTON LIMPIAR PANTALLA 
-    
+
+    // BOTON LIMPIAR PANTALLA 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
-        
-        limpiarPantalla();
+
+        jTFDocumento.setText("");
+        jTFApellido.setText("");
+        jTFNombre.setText("");
+        jRBEstado.setSelected(true);
+        jDCFechaNacim.setDate(null);
         alumno = null; // inicializamos-*-
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
-    
-                 // BOTON GUARDAR
-    
+    // BOTON GUARDAR
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-                
-     try{
-     
-         int dni = Integer.parseInt(jTFDocumento.getText());
-        
-         String nombre = jTFNombre.getText();
-         
-         String apellido = jTFApellido.getText();
-         
+
+        try {
+            int dni = Integer.parseInt(jTFDocumento.getText());
+            String nombre = jTFNombre.getText();
+            String apellido = jTFApellido.getText();
+
         
          if (nombre.isEmpty() || apellido.isEmpty()) {
              JOptionPane.showInternalMessageDialog(this, "No puede haber campos vacíos!!");
@@ -264,94 +237,55 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
          }      //  Arroja Error id duplicado -*- 
          
          
-         Date date = jDCFechaNacim.getDate();  
-                   
-         
-         LocalDate fechaNac = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-         
-    
-         Boolean estado = jRBEstado.isSelected(); 
-         
-         
-              
-           if (alumno==null) {
-             
-             alumno = new Alumno(dni,apellido,nombre,fechaNac, estado);
-             alu.guardarAlumno(alumno);
-              
-             
-         } else {
-             alumno.setDni(dni);
-             alumno.setApellido(apellido);
-             alumno.setNombre(nombre);
-             alumno.setFechaNacimiento(fechaNac);
-             alu.modificarAlumno(alumno);
-             
+            Date date = jDCFechaNacim.getDate();
+            LocalDate fechaNac = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Boolean estado = jRBEstado.isSelected();
 
-         }
-        limpiarPantalla();         
+            if (alumno == null) {
+                alumno = new Alumno(dni, apellido, nombre, fechaNac, estado);
+                ad.guardarAlumno(alumno);
+
+            } else {
+                alumno.setDni(dni);
+                alumno.setApellido(apellido);
+                alumno.setNombre(nombre);
+                alumno.setFechaNacimiento(fechaNac);
+                alumno.setEstado(jRBEstado.isSelected());
+                ad.modificarAlumno(alumno);
+            }
+            jBLimpiar.doClick();
         } catch (NumberFormatException nbe) {
-            
-            JOptionPane.showMessageDialog(this, "Debe ingresar un DNI válido!.");
+            JOptionPane.showMessageDialog(this, "Debe ingresar números en el campo DNI.");
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(this, "Verifique que no falte ningun dato.");
         }
-           
     }//GEN-LAST:event_jBGuardarActionPerformed
 
-    
-                   // BOTON ELIMINAR
-    
+    // BOTON ELIMINAR
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-    
-//          if (alumno!=null) {
-//           
-//          alu.eliminarAlumno(alumno.getIdAlumno());
-//           
-//          alumno = null; // inicializas
-          borrar(); 
-          limpiarPantalla();
-//       } else {
-//           
-//           JOptionPane.showMessageDialog(this, "No hay un alumno seleccionado!.");
-//        }
-    }//GEN-LAST:event_jBEliminarActionPerformed
-    
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         
-        dispose();
-    
-    }//GEN-LAST:event_jBSalirActionPerformed
+        try {
+            ad.eliminarAlumno(alumno.getIdAlumno());
+            jBLimpiar.doClick();
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un alumno.");
+        }
+    }//GEN-LAST:event_jBEliminarActionPerformed
 
-    //metodo limpiar-*-
-    
-    private void limpiarPantalla(){
-        jTFDocumento.setText("");
-        jTFApellido.setText("");
-        jTFNombre.setText("");
-        jRBEstado.setSelected(true); 
-        jDCFechaNacim.setDate(null);
-    }
-    
-    //metodo borrar-*-
-    
-   private void borrar() {
-    jTFDocumento.setText("");
-    jTFNombre.setText("");
-    jTFApellido.setText("");
-    jDCFechaNacim.setDate(null);
-    jRBEstado.setSelected(false);
-  //  alu.eliminarAlumnoPorDni(WIDTH);
+    // EVENTO DE TECLADO PARA CAPTURAR LA TECLA ENTERN EN EL CAMPO DNI. ACCIONA EL BOTON BUSCAR.
+    private void jTFDocumentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDocumentoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jBBuscar.doClick();
+        }
+    }//GEN-LAST:event_jTFDocumentoKeyPressed
 
-
-
-   }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBLimpiar;
-    private javax.swing.JButton jBSalir;
     private com.toedter.calendar.JDateChooser jDCFechaNacim;
     private javax.swing.JLabel jLAlumno;
     private javax.swing.JLabel jLabel1;

@@ -9,7 +9,10 @@ import java.awt.Color;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
+import universidadgrupo49.Entidades.Materia;
 
 
 /**
@@ -18,9 +21,7 @@ import javax.swing.ImageIcon;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuPrincipal
-     */
+    public static List<Materia> materias = new ArrayList<>();
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);  // centrar pantalla
