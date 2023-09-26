@@ -78,6 +78,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jdEscritorio.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jdEscritorioAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout jdEscritorioLayout = new javax.swing.GroupLayout(jdEscritorio);
         jdEscritorio.setLayout(jdEscritorioLayout);
         jdEscritorioLayout.setHorizontalGroup(
@@ -185,8 +195,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         jdEscritorio.removeAll();
         jdEscritorio.repaint();
-        MateriaVista mv = new MateriaVista();
+        MateriaVista mv = new MateriaVista(); // instraciamos el objeto
         mv.setVisible(true);
+        mv.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(mv);
         jdEscritorio.moveToFront(mv);
     }//GEN-LAST:event_jMFormMateriaActionPerformed
@@ -224,6 +235,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.add(vm);
         jdEscritorio.moveToFront(vm);
     }//GEN-LAST:event_jMAlumnosPorMateriaActionPerformed
+
+    private void jdEscritorioAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jdEscritorioAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jdEscritorioAncestorAdded
 
     /**
      * @param args the command line arguments
