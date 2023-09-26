@@ -120,7 +120,8 @@ public class MateriaData {
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
-                materia.setEstado(estado);
+    //    26-09  materia.setEstado(estado);
+                materia.setEstado(rs.getBoolean("estado"));
                 materias.add(materia);
             }
             ps.close();
