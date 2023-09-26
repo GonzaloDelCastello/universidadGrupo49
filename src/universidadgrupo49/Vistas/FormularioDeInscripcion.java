@@ -49,19 +49,23 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         cargaAlumnos();
         armarCabeceraTabla(); 
 
-       JInternalFrame internalFrame = new JInternalFrame();
-       Container contentPane = internalFrame.getContentPane();
-       contentPane.setBackground(new Color(121, 148, 52));
-       this.add(internalFrame);
+       JInternalFrame internalFrame = new JInternalFrame();     //
+       Container contentPane = internalFrame.getContentPane();  //
+       contentPane.setBackground(new Color(121, 148, 52));      //cambio color 
+       this.add(internalFrame);                                 //  fondo
     }
 
-                 // METODO CARGA ALUMNOS
+                 // METODO CARGA ALUMNOS    
     
-    private void cargaAlumnos() {       // Carga ComboBox
-        for (Alumno item : listaAlu) {
-            cboxAlumno.addItem(item);
-        }
+    private void cargaAlumnos() {
+    AlumnoData alumnoData = new AlumnoData(); // instancia AlumnoData
+    List<Alumno> listaAlumnos = alumnoData.listarAlumnos(true); // recupera todos los Alumnos
+    cboxAlumno.removeAllItems(); // limpia comboBox
+           
+    for (Alumno alumno : listaAlumnos) {
+        cboxAlumno.addItem(alumno); // agrega cada Alumno al comboBox-*-
     }
+}
     
                  // METODO ARMAR CABECERA TABLA             
     
