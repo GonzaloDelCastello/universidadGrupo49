@@ -12,10 +12,7 @@ import universidadgrupo49.Entidades.Inscripcion;
 import universidadgrupo49.Entidades.Materia;
 import javax.swing.table.DefaultTableColumnModel;
 
-/**
- *
- * @author Usuario
- */
+
 public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
     
     private DefaultTableModel modelo = new DefaultTableModel() {
@@ -26,16 +23,12 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
     private List<Materia> listaMat;
     private List<Alumno> listaAlu;
    
-    
     private InscripcionData inscrData;
     private MateriaData matData;
     private AlumnoData aluData;
     
-//    private DefaultTableModel modelo;
-     
     public ConsultaAlumnoPorMateriaVista() {
         initComponents();
-
     
         aluData = new AlumnoData();
         matData = new MateriaData();
@@ -53,8 +46,6 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
         cargarAlumnos();
     }
 
-    
-    
                   // METODO SELECCIONAR MATERIA         
      
     private void cargarMaterias(){
@@ -85,10 +76,6 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
         for(int i = indice;i>0;i--){
             modelo.removeRow(i);
         }
-//        while (modelo.getRowCount() > 0) {
-//            int cantidadFilas = modelo.getRowCount();
-//            modelo.removeRow(cantidadFilas - 1);
-//        }
     } 
      
     private void cargarAlumnos(){
@@ -101,36 +88,7 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
         }
         
     } 
-     
-     
-                 // METODO CARGA TABLA ALUMNOS    
-    
-//    private void cargaAlumnos() {
-//    AlumnoData alumnoData = new AlumnoData(); // crear una instancia AlumnoData
-//    List<Inscripcion> inscripciones = inscrData.obtenerAlumnosXMateria(cboxMateria.getSelectedItem())); // recupera los estudiantes de DB
-//    DefaultTableModel model = (DefaultTableModel) jTAlumno.getModel(); // obtener el modelo de tabla
-//    model.setRowCount(0); // limpia la tabla
-//    for (Inscripcion inscripcion : inscripciones) {
-//        Object[] row = {inscripcion.getAlumno().getIdAlumno(), inscripcion.getAlumno().getDni(), inscripcion.getAlumno().getApellido(), inscripcion.getAlumno().getNombre()};
-//        model.addRow(row); // agraga a cada alumno a la tabla
-//    }
-//}
-     
-             // MATERIA SELECCIONADA
-               
-//     public String materiaSeleccionada(List<String> listaMaterias, String materiaSeleccionada) {
-//    for (String materia : listaMaterias) {
-//        if (materia.equals(materiaSeleccionada)) {
-//            return materia;
-//        }
-//    }
-//    return null;
-//}
-//     
-     
-    
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -216,13 +174,8 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxMateriaActionPerformed
-        cargarAlumnos();
+        cargarAlumnos(); //carga los alumnos a la tabla cuando segun lo que contenga el cbox
     }//GEN-LAST:event_cboxMateriaActionPerformed
-
-    
-
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Materia> cboxMateria;
