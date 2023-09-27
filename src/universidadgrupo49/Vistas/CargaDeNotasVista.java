@@ -5,6 +5,7 @@
  */
 package universidadgrupo49.Vistas;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -95,6 +96,11 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         jTFDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFDniActionPerformed(evt);
+            }
+        });
+        jTFDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFDniKeyPressed(evt);
             }
         });
 
@@ -239,6 +245,13 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jTFDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDniKeyPressed
+                                        
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jBBuscar.doClick();
+        }    }//GEN-LAST:event_jTFDniKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
