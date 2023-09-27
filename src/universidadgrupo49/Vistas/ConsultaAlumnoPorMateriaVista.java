@@ -73,7 +73,7 @@ public class ConsultaAlumnoPorMateriaVista extends javax.swing.JInternalFrame {
     private void borrarFilasTablas(){
         int indice = modelo.getRowCount()-1;
         
-        for(int i = indice;i>0;i--){
+        for(int i = indice;i>=0;i--){
             modelo.removeRow(i);
         }
     } 
