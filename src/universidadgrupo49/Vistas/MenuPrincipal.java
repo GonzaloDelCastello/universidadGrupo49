@@ -221,6 +221,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.repaint();
         CargaDeNotasVista cg = new CargaDeNotasVista();
         cg.setVisible(true);
+        cg.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(cg);
         jdEscritorio.moveToFront(cg);
     }//GEN-LAST:event_jMNotasActionPerformed
@@ -232,6 +233,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jdEscritorio.repaint();
         ConsultaAlumnoPorMateriaVista vm = new ConsultaAlumnoPorMateriaVista();
         vm.setVisible(true);
+        vm.getContentPane().setBackground(new Color(121, 148, 52)); // modificamos el color de fondo
         jdEscritorio.add(vm);
         jdEscritorio.moveToFront(vm);
     }//GEN-LAST:event_jMAlumnosPorMateriaActionPerformed

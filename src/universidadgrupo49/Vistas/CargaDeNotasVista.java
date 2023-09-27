@@ -69,8 +69,10 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setText("Carga de Notas");
 
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setText("Buscar alumno:");
 
         jTListaInscripciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,6 +88,10 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTListaInscripciones);
 
+        jBSalir.setBackground(new java.awt.Color(0, 204, 204));
+        jBSalir.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBSalir.setForeground(new java.awt.Color(0, 0, 0));
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/salida.png"))); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,17 +110,28 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setText("Dni:");
 
+        jBBuscar.setBackground(new java.awt.Color(41, 84, 171));
+        jBBuscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/lupa.png"))); // NOI18N
         jBBuscar.setText("Buscar");
+        jBBuscar.setToolTipText("Ingrese el DNI del Alumno");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setText("Inscripciones:");
 
+        jBModificarNota.setBackground(new java.awt.Color(35, 153, 67));
+        jBModificarNota.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBModificarNota.setForeground(new java.awt.Color(0, 0, 0));
+        jBModificarNota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/editar.png"))); // NOI18N
         jBModificarNota.setText("Modificar nota");
         jBModificarNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +171,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jBBuscar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +189,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalir)
                     .addComponent(jBModificarNota)))
