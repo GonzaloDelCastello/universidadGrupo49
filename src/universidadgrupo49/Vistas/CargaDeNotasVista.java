@@ -23,7 +23,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
 
     private AlumnoData ad = new AlumnoData();
     private Alumno alumno = null;
-    private List listaInscripciones;
+    
     private InscripcionData ins = new InscripcionData();
     private List<Inscripcion> inscripciones = new ArrayList<>();
     
@@ -48,7 +48,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
             modelo.addColumn(rec);
         }
         
-        jTListaAlumnos.setModel(modelo);
+        jTListaInscripciones.setModel(modelo);
     }
     
     
@@ -59,13 +59,16 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTListaAlumnos = new javax.swing.JTable();
+        jTListaInscripciones = new javax.swing.JTable();
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jTFDni = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jBBuscar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jBModificarNota = new javax.swing.JButton();
+        jTFCodigoInscripcion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -74,7 +77,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Buscar alumno:");
 
-        jTListaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
+        jTListaInscripciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -85,7 +88,7 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTListaAlumnos);
+        jScrollPane1.setViewportView(jTListaInscripciones);
 
         jBGuardar.setText("Guardar");
 
@@ -106,7 +109,22 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Materia");
+        jLabel4.setText("Inscripciones:");
+
+        jBModificarNota.setText("Modificar nota");
+        jBModificarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBModificarNotaActionPerformed(evt);
+            }
+        });
+
+        jTFCodigoInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCodigoInscripcionActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Código incripción");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,20 +134,27 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBGuardar)
-                                .addGap(81, 81, 81)
-                                .addComponent(jBSalir))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(154, 154, 154)
-                                    .addComponent(jLabel1))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(17, 17, 17)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGap(154, 154, 154)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(57, 57, 57)
+                                                .addComponent(jTFCodigoInscripcion))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jBModificarNota)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jBGuardar)))
+                                        .addGap(81, 81, 81)
+                                        .addComponent(jBSalir))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +164,8 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                                 .addGap(53, 53, 53)
                                 .addComponent(jTFDni, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jBBuscar)))))
+                                .addComponent(jBBuscar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,14 +180,19 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                     .addComponent(jTFDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jBBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFCodigoInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGuardar)
-                    .addComponent(jBSalir)))
+                    .addComponent(jBSalir)
+                    .addComponent(jBModificarNota)))
         );
 
         pack();
@@ -173,32 +204,74 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         
-        int dni = Integer.parseInt(jTFDni.getText());
-        Alumno alumno = ad.buscarAlumnoDNI(dni, true);
-        
-            if (alumno != null){
-//                for (Materia materia : listaMat) {
-//            modelo.addRow(new Object[] {materia.getIdMateria(), materia.getNombre(), materia.getAnio()});
+//        private void borrarFilaTabla(){
+//        
+//        int indice = modelo.getRowCount() -1;
+//        
+//        for (int i = indice; i >= 0; i--) {
+//            modelo.removeRow(i);
+//            
 //        }
-                JOptionPane.showMessageDialog(this, "Alumno encontrado");
+//    }
+        try {
+            jTFCodigoInscripcion.removeAll();
+            int dni = Integer.parseInt(jTFDni.getText());
+            alumno = ad.buscarAlumnoDNI(dni, true);
+            if (alumno != null){
+                
+                inscripciones = ins.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
+                for (Inscripcion inscrip : inscripciones) {
+            modelo.addRow(new Object[] {inscrip.getMateria().getIdMateria(), inscrip.getMateria().getNombre(), inscrip.getNota()});
+        }
+//                JOptionPane.showMessageDialog(this, "Alumno encontrado");
             } else {
                 JOptionPane.showMessageDialog(this, "Alumno no encontrado");
             }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Solo se aceptan números en el campo DNI");
+        }
+            
             
         
     }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBModificarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarNotaActionPerformed
+            int filaSect = jTListaInscripciones.getSelectedRow();
+//          
+            try {
+            int idMateria = (Integer)modelo.getValueAt(filaSect, 0);    
+//            JOptionPane.showMessageDialog(this, idMateria);
+            double nuevaNota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nueva nota")); 
+            JOptionPane.showMessageDialog(this, "La nueva nota es:"+nuevaNota);
+            JOptionPane.showMessageDialog(this, "El Idalumno: "+alumno.getIdAlumno());
+            JOptionPane.showMessageDialog(this, "El Idmateria"+idMateria);
+            ins.actualizarNota(alumno.getIdAlumno(), idMateria, nuevaNota);
+            jBBuscar.doClick();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "Debe elegir una materia");
+        }
+            
+    }//GEN-LAST:event_jBModificarNotaActionPerformed
+    
+    
+    private void jTFCodigoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodigoInscripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCodigoInscripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBModificarNota;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTFCodigoInscripcion;
     private javax.swing.JTextField jTFDni;
-    private javax.swing.JTable jTListaAlumnos;
+    private javax.swing.JTable jTListaInscripciones;
     // End of variables declaration//GEN-END:variables
 }
