@@ -23,35 +23,33 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
 
     private AlumnoData ad = new AlumnoData();
     private Alumno alumno = null;
-    
+
     private InscripcionData ins = new InscripcionData();
     private List<Inscripcion> inscripciones = new ArrayList<>();
-    
+
     private DefaultTableModel modelo;
-    
-    
+
     public CargaDeNotasVista() {
         initComponents();
-        
+
         modelo = new DefaultTableModel();
-        
+
         armarCabeceraTabla();
     }
-    
-    private void armarCabeceraTabla(){
+
+    private void armarCabeceraTabla() {
         ArrayList<Object> filaCabecera = new ArrayList<>();
         filaCabecera.add("Código");                             //
         filaCabecera.add("Nombre");                         //titulos tabla-*-
         filaCabecera.add("Nota");                            //
-        
+
         for (Object rec : filaCabecera) {
             modelo.addColumn(rec);
         }
-        
+
         jTListaInscripciones.setModel(modelo);
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,15 +58,12 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTListaInscripciones = new javax.swing.JTable();
-        jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jTFDni = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jBBuscar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jBModificarNota = new javax.swing.JButton();
-        jTFCodigoInscripcion = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -90,9 +85,12 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTListaInscripciones);
 
-        jBGuardar.setText("Guardar");
-
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jTFDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,14 +116,6 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jTFCodigoInscripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFCodigoInscripcionActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Código incripción");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,19 +132,11 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                                 .addGap(17, 17, 17)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(57, 57, 57)
-                                                .addComponent(jTFCodigoInscripcion))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jBModificarNota)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jBGuardar)))
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jBSalir))))))
+                                        .addComponent(jBModificarNota)
+                                        .addGap(204, 204, 204)
+                                        .addComponent(jBSalir))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,14 +165,9 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFCodigoInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBGuardar)
                     .addComponent(jBSalir)
                     .addComponent(jBModificarNota)))
         );
@@ -202,27 +179,27 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFDniActionPerformed
 
+    private void borrarFilaTabla() {
+
+        int indice = modelo.getRowCount() - 1;
+
+        for (int i = indice; i >= 0; i--) {
+            modelo.removeRow(i);
+
+        }
+    }
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        
-//        private void borrarFilaTabla(){
-//        
-//        int indice = modelo.getRowCount() -1;
-//        
-//        for (int i = indice; i >= 0; i--) {
-//            modelo.removeRow(i);
-//            
-//        }
-//    }
+
         try {
-            jTFCodigoInscripcion.removeAll();
+            borrarFilaTabla();
             int dni = Integer.parseInt(jTFDni.getText());
             alumno = ad.buscarAlumnoDNI(dni, true);
-            if (alumno != null){
-                
+            if (alumno != null) {
+
                 inscripciones = ins.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
                 for (Inscripcion inscrip : inscripciones) {
-            modelo.addRow(new Object[] {inscrip.getMateria().getIdMateria(), inscrip.getMateria().getNombre(), inscrip.getNota()});
-        }
+                    modelo.addRow(new Object[]{inscrip.getMateria().getIdMateria(), inscrip.getMateria().getNombre(), inscrip.getNota()});
+                }
 //                JOptionPane.showMessageDialog(this, "Alumno encontrado");
             } else {
                 JOptionPane.showMessageDialog(this, "Alumno no encontrado");
@@ -230,47 +207,49 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Solo se aceptan números en el campo DNI");
         }
-            
-            
-        
+
+
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBModificarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarNotaActionPerformed
-            int filaSect = jTListaInscripciones.getSelectedRow();
-//          
-            try {
-            int idMateria = (Integer)modelo.getValueAt(filaSect, 0);    
+        int filaSect = jTListaInscripciones.getSelectedRow();
+        double nuevaNota = 0;
+        try {
+            int idMateria = (Integer) modelo.getValueAt(filaSect, 0);
 //            JOptionPane.showMessageDialog(this, idMateria);
-            double nuevaNota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nueva nota")); 
-            JOptionPane.showMessageDialog(this, "La nueva nota es:"+nuevaNota);
-            JOptionPane.showMessageDialog(this, "El Idalumno: "+alumno.getIdAlumno());
-            JOptionPane.showMessageDialog(this, "El Idmateria"+idMateria);
-            ins.actualizarNota(alumno.getIdAlumno(), idMateria, nuevaNota);
-            jBBuscar.doClick();
+            while (nuevaNota <= 0 || nuevaNota > 10) {
+                nuevaNota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nueva nota"));
+                if (nuevaNota <= 0 || nuevaNota > 10) {
+                    JOptionPane.showMessageDialog(this, "Ingrese una nota válida");
+                    
+                } else {
+                    ins.actualizarNota(alumno.getIdAlumno(), idMateria, nuevaNota);
+                    jBBuscar.doClick();
+                    JOptionPane.showMessageDialog(this, "La nueva nota es: " + nuevaNota);
+
+                }
+
+            }
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this, "Debe elegir una materia");
         }
-            
+
     }//GEN-LAST:event_jBModificarNotaActionPerformed
-    
-    
-    private void jTFCodigoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCodigoInscripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFCodigoInscripcionActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
-    private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBModificarNota;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTFCodigoInscripcion;
     private javax.swing.JTextField jTFDni;
     private javax.swing.JTable jTListaInscripciones;
     // End of variables declaration//GEN-END:variables
