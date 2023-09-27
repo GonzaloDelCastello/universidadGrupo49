@@ -37,7 +37,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jTNombre = new javax.swing.JTextField();
         jTAnio = new javax.swing.JTextField();
         jBBuscar = new javax.swing.JButton();
-        jBNuevo = new javax.swing.JButton();
+        jBLimpiarPantalla = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
         jBModificar1 = new javax.swing.JButton();
@@ -74,14 +74,14 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jBNuevo.setBackground(new java.awt.Color(157, 161, 158));
-        jBNuevo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBNuevo.setForeground(new java.awt.Color(0, 0, 0));
-        jBNuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\escoba.png")); // NOI18N
-        jBNuevo.setText("Limpiar Pantalla");
-        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+        jBLimpiarPantalla.setBackground(new java.awt.Color(157, 161, 158));
+        jBLimpiarPantalla.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBLimpiarPantalla.setForeground(new java.awt.Color(0, 0, 0));
+        jBLimpiarPantalla.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\escoba.png")); // NOI18N
+        jBLimpiarPantalla.setText("Limpiar Pantalla");
+        jBLimpiarPantalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNuevoActionPerformed(evt);
+                jBLimpiarPantallaActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jBNuevo)
+                        .addComponent(jBLimpiarPantalla)
                         .addGap(18, 18, 18)
                         .addComponent(jBEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -187,7 +187,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                     .addComponent(jRBEstado))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
+                    .addComponent(jBLimpiarPantalla)
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBModificar1))
@@ -205,7 +205,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         try {
             int id = Integer.parseInt(jTCodigo.getText());
-             boolean estado = jRBEstado.isSelected();
+            boolean estado = jRBEstado.isSelected();
             materiaActual = mateData.buscarMateria(id, estado);
             
             if(materiaActual !=null){
@@ -222,10 +222,10 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
-    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+    private void jBLimpiarPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarPantallaActionPerformed
         limpiarPantalla();
         materiaActual = null; 
-    }//GEN-LAST:event_jBNuevoActionPerformed
+    }//GEN-LAST:event_jBLimpiarPantallaActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
        try{
@@ -246,6 +246,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                 materiaActual.setEstado(estado);
                 mateData.modificarMateria(materiaActual);
             }
+            limpiarPantalla();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Error de carga,ingrese solo numeros");
         }
@@ -266,8 +267,8 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBLimpiarPantalla;
     private javax.swing.JButton jBModificar1;
-    private javax.swing.JButton jBNuevo;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
