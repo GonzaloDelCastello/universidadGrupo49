@@ -33,10 +33,10 @@ public class MateriaData {
             ps.setBoolean(3, materia.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                materia.setIdMateria(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Materia añadida correctamente.");  
-            }
+//            if (rs.next()) {
+//                materia.setIdMateria(rs.getInt(1));
+//                JOptionPane.showMessageDialog(null, "Materia añadida correctamente.");  
+//            }
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla" + ex.getMessage());

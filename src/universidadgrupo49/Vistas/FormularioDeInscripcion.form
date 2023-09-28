@@ -198,7 +198,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Documents\GitHub\universidadGrupo49\src\universidadgrupo49\recursos\basura.png"/>
+          <Image iconType="3" name="/universidadgrupo49/recursos/basura.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Anular Inscripci&#xf3;n"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -219,7 +219,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Documents\GitHub\universidadGrupo49\src\universidadgrupo49\recursos\agregar-usuario.png"/>
+          <Image iconType="3" name="/universidadgrupo49/recursos/agregar-usuario.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Inscribir"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -240,7 +240,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Documents\GitHub\universidadGrupo49\src\universidadgrupo49\recursos\salida.png"/>
+          <Image iconType="3" name="/universidadgrupo49/recursos/salida.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>

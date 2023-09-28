@@ -80,7 +80,7 @@ public class InscripcionData {
             int fila = ps.executeUpdate();
 
             if (fila > 0) {
-                JOptionPane.showMessageDialog(null, "Nota actualizada");
+//                JOptionPane.showMessageDialog(null, "Nota actualizada"); SE COMENTA LINEA PORQUE ES SOLO PARA PROBAR.
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo actualizar la nota");
             }

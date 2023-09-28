@@ -66,7 +66,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBBuscar.setBackground(new java.awt.Color(41, 84, 171));
         jBBuscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBBuscar.setForeground(new java.awt.Color(0, 0, 0));
-        jBBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\lupa.png")); // NOI18N
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/lupa.png"))); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +77,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBLimpiarPantalla.setBackground(new java.awt.Color(157, 161, 158));
         jBLimpiarPantalla.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBLimpiarPantalla.setForeground(new java.awt.Color(0, 0, 0));
-        jBLimpiarPantalla.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\escoba.png")); // NOI18N
+        jBLimpiarPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/escoba.png"))); // NOI18N
         jBLimpiarPantalla.setText("Limpiar Pantalla");
         jBLimpiarPantalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBEliminar.setBackground(new java.awt.Color(224, 9, 78));
         jBEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jBEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\basura.png")); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/basura.png"))); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,8 +99,8 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBGuardar.setBackground(new java.awt.Color(35, 153, 67));
         jBGuardar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        jBGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\guardar-datos.png")); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/guardar-datos.png"))); // NOI18N
+        jBGuardar.setText("Guardar / Modificar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
@@ -110,7 +110,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBModificar1.setBackground(new java.awt.Color(0, 204, 204));
         jBModificar1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBModificar1.setForeground(new java.awt.Color(0, 0, 0));
-        jBModificar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\salida.png")); // NOI18N
+        jBModificar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/salida.png"))); // NOI18N
         jBModificar1.setText("Salir");
         jBModificar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,15 +232,16 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             String nombre = jTNombre.getText();
             int anio = Integer.parseInt(jTAnio.getText());
             boolean estado = jRBEstado.isSelected();
-            if (jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()) {
+            if (jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()) { // VALIDA QUE NO HAYA CAMPOS VACIOS EN NOMBRE Y AÑO
                 JOptionPane.showMessageDialog(this, "Error de carga, datos o campos vacios");
                 return;
             }
             
-            if (materiaActual == null) {
+            if (materiaActual == null) { // VERIFICA SI LA MATERIA YA EXISTE EN LA BD
                 materiaActual = new Materia(nombre, anio, estado);
                 mateData.guardarMateria(materiaActual);
-            } else {
+                JOptionPane.showMessageDialog(this, "Materia añadida correctamente.");
+            } else { // SI LA MATERIA YA EXISTE, LA SOBREESCRIBE O MODIFICA
                 materiaActual.setNombre(nombre);
                 materiaActual.setAnio(anio);
                 materiaActual.setEstado(estado);
@@ -248,7 +249,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             }
             limpiarPantalla();
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Error de carga,ingrese solo numeros");
+            JOptionPane.showMessageDialog(this, "Error de carga, verifique los datos.");
         }
     }//GEN-LAST:event_jBGuardarActionPerformed
 

@@ -90,9 +90,8 @@ public class Alumno {
 
     @Override
     public String toString() {
-      // Modificado 25-09 return "Alumno: " + "idAlumno: " + idAlumno + "|| dni: " + dni + "|| apellido: " + apellido + "|| nombre: " + nombre + "|| estado: " + estado;
     
-      return dni+", "+apellido+", "+nombre;
+      return "DNI: " + dni + ", " + "Apellido: " + apellido + ", " + "Nombre: " + nombre;
     }
 }
     

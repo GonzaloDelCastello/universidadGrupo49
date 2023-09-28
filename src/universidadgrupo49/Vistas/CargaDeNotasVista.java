@@ -14,7 +14,6 @@ import universidadgrupo49.AccesoADatos.AlumnoData;
 import universidadgrupo49.AccesoADatos.InscripcionData;
 import universidadgrupo49.Entidades.Alumno;
 import universidadgrupo49.Entidades.Inscripcion;
-import universidadgrupo49.Entidades.Materia;
 
 /**
  *
@@ -99,11 +98,6 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jTFDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFDniActionPerformed(evt);
-            }
-        });
         jTFDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFDniKeyPressed(evt);
@@ -198,10 +192,6 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDniActionPerformed
-
     private void borrarFilaTabla() {
 
         int indice = modelo.getRowCount() - 1;
@@ -239,7 +229,6 @@ public class CargaDeNotasVista extends javax.swing.JInternalFrame {
         double nuevaNota = 0;
         try {
             int idMateria = (Integer) modelo.getValueAt(filaSect, 0);
-//            JOptionPane.showMessageDialog(this, idMateria);
             while (nuevaNota <= 0 || nuevaNota > 10) {
                 nuevaNota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nueva nota"));
                 if (nuevaNota <= 0 || nuevaNota > 10) {

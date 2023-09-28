@@ -186,7 +186,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jBAInscribir.setBackground(new java.awt.Color(224, 9, 78));
         jBAInscribir.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBAInscribir.setForeground(new java.awt.Color(0, 0, 0));
-        jBAInscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\basura.png")); // NOI18N
+        jBAInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/basura.png"))); // NOI18N
         jBAInscribir.setText("Anular Inscripción");
         jBAInscribir.setEnabled(false);
         jBAInscribir.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +198,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         btnInscribir.setBackground(new java.awt.Color(35, 153, 67));
         btnInscribir.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnInscribir.setForeground(new java.awt.Color(0, 0, 0));
-        btnInscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\agregar-usuario.png")); // NOI18N
+        btnInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/agregar-usuario.png"))); // NOI18N
         btnInscribir.setText("Inscribir");
         btnInscribir.setEnabled(false);
         btnInscribir.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +210,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\GitHub\\universidadGrupo49\\src\\universidadgrupo49\\recursos\\salida.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo49/recursos/salida.png"))); // NOI18N
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
