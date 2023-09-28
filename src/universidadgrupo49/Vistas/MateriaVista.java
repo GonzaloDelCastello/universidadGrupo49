@@ -5,8 +5,12 @@
  */
 package universidadgrupo49.Vistas;
 
+import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
+import universidadgrupo49.AccesoADatos.InscripcionData;
 import universidadgrupo49.AccesoADatos.MateriaData;
+import universidadgrupo49.Entidades.Alumno;
 import universidadgrupo49.Entidades.Materia;
 
 /**
@@ -14,11 +18,10 @@ import universidadgrupo49.Entidades.Materia;
  * @author Usuario
  */
 public class MateriaVista extends javax.swing.JInternalFrame {
-    
-   
+
     private MateriaData mateData = new MateriaData();  // creamos un objeto de ateriaData
     private Materia materiaActual = null; // creamos un objeto de materia inicializada en null
-    
+
     public MateriaVista() {
         initComponents();
     }
@@ -62,6 +65,12 @@ public class MateriaVista extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setText("Estado");
+
+        jTCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTCodigoKeyPressed(evt);
+            }
+        });
 
         jBBuscar.setBackground(new java.awt.Color(41, 84, 171));
         jBBuscar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -198,37 +207,37 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificar1ActionPerformed
-       dispose();
+        dispose();
 
     }//GEN-LAST:event_jBModificar1ActionPerformed
-    
+
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         try {
             int id = Integer.parseInt(jTCodigo.getText());
             boolean estado = jRBEstado.isSelected();
             materiaActual = mateData.buscarMateria(id, estado);
-            
-            if(materiaActual !=null){
-            
-            jTNombre.setText(materiaActual.getNombre());
-            int anio = materiaActual.getAnio();
-            String anioStr = Integer.toString(anio);
-            jTAnio.setText(anioStr);
+
+            if (materiaActual != null) {
+
+                jTNombre.setText(materiaActual.getNombre());
+                int anio = materiaActual.getAnio();
+                String anioStr = Integer.toString(anio);
+                jTAnio.setText(anioStr);
             }
         } catch (NumberFormatException nbe) {
             JOptionPane.showMessageDialog(this, "El campo Codigo solo acepta números.");
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No existe la materia.");
         }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBLimpiarPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarPantallaActionPerformed
         limpiarPantalla();
-        materiaActual = null; 
+        materiaActual = null;
     }//GEN-LAST:event_jBLimpiarPantallaActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-       try{
+        try {
             String nombre = jTNombre.getText();
             int anio = Integer.parseInt(jTAnio.getText());
             boolean estado = jRBEstado.isSelected();
@@ -236,7 +245,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(this, "Error de carga, datos o campos vacios");
                 return;
             }
-            
+
             if (materiaActual == null) { // VERIFICA SI LA MATERIA YA EXISTE EN LA BD
                 materiaActual = new Materia(nombre, anio, estado);
                 mateData.guardarMateria(materiaActual);
@@ -254,14 +263,29 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        if(materiaActual != null){
-        mateData.eliminarMateria(materiaActual.getIdMateria());
-        materiaActual = null;
-        limpiarPantalla();
-        }else{
+        InscripcionData insData = new InscripcionData();
+        List<Alumno> aluXMat = insData.obtenerAlumnosXMateria(materiaActual.getIdMateria());
+
+        if (materiaActual != null) {
+            if (aluXMat.isEmpty()) { //valida que la materia no tenga alumnos inscriptos
+                mateData.eliminarMateria(materiaActual.getIdMateria());
+                materiaActual = null;
+                limpiarPantalla();
+            } else {
+                JOptionPane.showMessageDialog(this, "La materia contiene alumnos inscriptos. No se puede eliminar.");
+            }
+
+        } else {
             JOptionPane.showMessageDialog(this, "No existe la materia");
         }
     }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jTCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTCodigoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jBBuscar.doClick();
+        }
+    }//GEN-LAST:event_jTCodigoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -282,11 +306,11 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTNombre;
     // End of variables declaration//GEN-END:variables
 
-    public void limpiarPantalla(){
+    public void limpiarPantalla() {
         jTCodigo.setText("");
         jTNombre.setText("");
         jTAnio.setText("");
         jRBEstado.setSelected(true);
     }
- 
+
 }
