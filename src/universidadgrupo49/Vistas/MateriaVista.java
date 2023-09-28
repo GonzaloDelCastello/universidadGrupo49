@@ -263,10 +263,11 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        InscripcionData insData = new InscripcionData();
+        try {
+            InscripcionData insData = new InscripcionData();
         List<Alumno> aluXMat = insData.obtenerAlumnosXMateria(materiaActual.getIdMateria());
 
-        if (materiaActual != null) {
+        
             if (aluXMat.isEmpty()) { //valida que la materia no tenga alumnos inscriptos
                 mateData.eliminarMateria(materiaActual.getIdMateria());
                 materiaActual = null;
@@ -274,10 +275,12 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "La materia contiene alumnos inscriptos. No se puede eliminar.");
             }
-
-        } else {
+        } catch (NullPointerException npe) {
             JOptionPane.showMessageDialog(this, "No existe la materia");
         }
+        
+
+        
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jTCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTCodigoKeyPressed
