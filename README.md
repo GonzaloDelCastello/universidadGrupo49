@@ -1,4 +1,5 @@
-<h1 align="center">Hola 👋, somos los integrantes del grupo {49}</h1>
+<h1 align="center">Hola 👋, somos los integrantes del grupo {49} de la ULP de San Luis Argetina<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="idea.png" whidt="250" style="max-width: 100%;" /></h1>
 
 
 <h3 align="center">Apasionados FullStack developer de Argentina</h3>
