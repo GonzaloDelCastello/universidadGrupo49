@@ -2,7 +2,7 @@
 
 
 <h3 align="center">Apasionados FullStack developer de Argentina</h3>
-<h3 align="left">Languages and Tools:</h3>
+<h3 align="left">Herramientas utilizadas:</h3>
 
 <p align="left"> 
 
@@ -16,35 +16,22 @@
 
 <hr>
 <div aling="center">
-<a href="https://github.com/toby959/toby959/README.md" >
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
 <img aling="center" src="pantalla_inicio.png" whidt="250" style="max-width: 100%;" />
 <br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_footer.png" whidt="250" style="max-width: 100%;" />
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="pantalla_1.png" whidt="250" style="max-width: 100%;" />
 <br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_servicios.png" whidt="250" style="max-width: 100%;" />
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="pantalla_2.png" whidt="250" style="max-width: 100%;" />
 <br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_nosotros.png" whidt="250" style="max-width: 100%;" />
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="pantalla_3.png" whidt="250" style="max-width: 100%;" />
 <br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_login_admin.png" whidt="250" style="max-width: 100%;" />
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="pantalla_4.png" whidt="250" style="max-width: 100%;" />
 <br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_ingreso_login.png" whidt="250" style="max-width: 100%;" />
-<br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_admin.png" whidt="250" style="max-width: 100%;" />
-<br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_CRUD .png" whidt="250" style="max-width: 100%;" />
-<br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="imagen_db.png" whidt="250" style="max-width: 100%;" />
-<br><br><br>
-<a href="https://github.com/toby959/toby959/README.md" >
-<img aling="center" src="pantalla_registro_admin.png" whidt="250" style="max-width: 100%;" />
-<br><br><br>
-
+<a href="https://github.com/GonzaloDelCastello/universidadgrupo49/README.md" >
+<img aling="center" src="pantalla_5.png" whidt="250" style="max-width: 100%;" />
+<br><br><br>  
 </div>
