@@ -2,7 +2,7 @@
 <img aling="center" src="idea.png" whidt="250" style="max-width: 100%;" /></h1>
 
 
-<h3 align="center">Apasionados FullStack developer</h3>
+<h3 align="center">Apasionados desarrolladores FullStack</h3>
 <h3 align="left">Herramientas utilizadas:</h3>
 
 <p align="left"> 
